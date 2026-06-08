@@ -161,8 +161,8 @@ class _WebHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = AppText.of(context);
     final surface = Theme.of(context).colorScheme.surface;
-    final divider = Theme.of(context).dividerColor;
     final onSurface = Theme.of(context).colorScheme.onSurface;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     final linkStyle = TextStyle(
       fontWeight: FontWeight.w800,
@@ -176,12 +176,11 @@ class _WebHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: divider),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
-            blurRadius: 12,
-            offset: const Offset(0, 6),
+            color: Colors.black.withOpacity(isDark ? 0.24 : 0.07),
+            blurRadius: 16,
+            offset: const Offset(0, 8),
           ),
         ],
       ),
@@ -269,7 +268,7 @@ class _PrivacyHero extends StatelessWidget {
 
     final s1 = Theme.of(context).colorScheme.surface;
     final s2 = Theme.of(context).colorScheme.surfaceContainerHighest;
-    final divider = Theme.of(context).dividerColor;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     final titleStyle = Theme.of(context).textTheme.headlineSmall?.copyWith(
       fontWeight: FontWeight.w900,
@@ -289,12 +288,18 @@ class _PrivacyHero extends StatelessWidget {
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: divider),
         gradient: LinearGradient(
           colors: [s1, s2],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(isDark ? 0.22 : 0.07),
+            blurRadius: 18,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
       child: isWide
           ? Row(
@@ -409,14 +414,20 @@ class _DownloadStrip extends StatelessWidget {
     final isNarrow = w < 700;
 
     final surface = Theme.of(context).colorScheme.surface;
-    final divider = Theme.of(context).dividerColor;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
       decoration: BoxDecoration(
         color: surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: divider),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(isDark ? 0.20 : 0.06),
+            blurRadius: 16,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
       child: isNarrow
           ? Column(
@@ -534,14 +545,10 @@ class _Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final divider = Theme.of(context).dividerColor;
     final text = AppText.of(context);
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 14),
-      decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: divider)),
-      ),
       child: Wrap(
         alignment: WrapAlignment.center,
         spacing: 18,
