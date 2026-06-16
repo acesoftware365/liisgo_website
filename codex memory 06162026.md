@@ -5,6 +5,11 @@ Local path: `/Users/juanpolanco/Desktop/Work/App in work/liisgo_website_09142025
 GitHub remote: `https://github.com/acesoftware365/liisgo_website.git`
 Date: 2026-06-16
 
+## Standing Rule
+
+- Every time the website changes, increase the website version in `pubspec.yaml` before committing and pushing.
+- Current website version after this update: `1.0.0+4`.
+
 ## What Changed
 
 - Updated the home page hero to feel more like a Liisgo LLC brand landing page.
@@ -63,4 +68,4 @@ Date: 2026-06-16
 - The repository already has many existing informational lint warnings. They were not part of this change.
 - A generated hero image was briefly created during early exploration before the real project path was provided. It was not used in the Flutter project.
 - The user wants changes pushed to GitHub repo `acesoftware365/liisgo_website`.
-
+- The user said this GitHub repo is where the website is uploaded, and the website version must be increased every time changes are made.
