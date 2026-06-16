@@ -95,3 +95,16 @@ Date: 2026-06-16
   - Added a reusable app visuals section to app detail pages between the hero and download area.
   - Verified visually on local build for EzInvoice and Alpha Discovery.
   - Website version increased to `1.0.0+8`.
+- 2026-06-16 real app screenshots update:
+  - Replaced the generated/generic app visuals with real screenshots or current app captures while keeping the same app page visual section style.
+  - EzInvoice now uses current local screenshot sets from the device/simulator screenshot folders rather than older store screenshots.
+  - Kapi Note now uses current local iPhone/iPad simulator screenshots from 2026-06-16.
+  - Alpha Discovery was launched in the iPad simulator and new real screenshots were captured for Tracing, Vowels, and Counting views.
+  - ShowMyName uses the updated App Store/Google Play screenshot resources because Juan confirmed those store screenshots are current.
+  - Promotional image backgrounds and screenshot frames were recolored to match each app icon:
+    - EzInvoice green.
+    - Kapi Note red/pink.
+    - Alpha Discovery blue/yellow.
+    - ShowMyName dark purple/gold.
+  - The reusable app visuals section now applies a subtle per-app accent tint and border based on the app icon color.
+  - Website version increased to `1.0.0+9`.

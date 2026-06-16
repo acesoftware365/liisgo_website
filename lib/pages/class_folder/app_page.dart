@@ -345,6 +345,7 @@ class _AppVisualSection extends StatelessWidget {
       case "Kapi Note":
         return const _VisualSet(
           promo: "assets/app_pages/kapi_note_promo.png",
+          accent: Color(0xFFE8464D),
           screenshots: [
             "assets/app_pages/kapi_note_screen_1.png",
             "assets/app_pages/kapi_note_screen_2.png",
@@ -354,6 +355,7 @@ class _AppVisualSection extends StatelessWidget {
       case "EzInvoice":
         return const _VisualSet(
           promo: "assets/app_pages/ezinvoice_promo.png",
+          accent: Color(0xFF187C68),
           screenshots: [
             "assets/app_pages/ezinvoice_screen_1.png",
             "assets/app_pages/ezinvoice_screen_2.png",
@@ -363,6 +365,7 @@ class _AppVisualSection extends StatelessWidget {
       case "ShowMyName":
         return const _VisualSet(
           promo: "assets/app_pages/showmyname_promo.png",
+          accent: Color(0xFFB895FF),
           screenshots: [
             "assets/app_pages/showmyname_screen_1.png",
             "assets/app_pages/showmyname_screen_2.png",
@@ -372,6 +375,7 @@ class _AppVisualSection extends StatelessWidget {
       case "Alpha Discovery":
         return const _VisualSet(
           promo: "assets/app_pages/alpha_discovery_promo.png",
+          accent: Color(0xFF236997),
           screenshots: [
             "assets/app_pages/alpha_discovery_screen_1.png",
             "assets/app_pages/alpha_discovery_screen_2.png",
@@ -381,6 +385,7 @@ class _AppVisualSection extends StatelessWidget {
       default:
         return const _VisualSet(
           promo: "assets/app_pages/kapi_note_promo.png",
+          accent: Color(0xFFE8464D),
           screenshots: [],
         );
     }
@@ -392,6 +397,10 @@ class _AppVisualSection extends StatelessWidget {
     final visuals = _visuals;
     final surface = Theme.of(context).colorScheme.surface;
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final tint = Color.alphaBlend(
+      visuals.accent.withValues(alpha: isDark ? 0.16 : 0.08),
+      surface,
+    );
     final muted = Theme.of(
       context,
     ).textTheme.bodyMedium?.color?.withOpacity(0.70);
@@ -399,11 +408,18 @@ class _AppVisualSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: surface,
+        gradient: LinearGradient(
+          colors: [surface, tint],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: visuals.accent.withValues(alpha: isDark ? 0.26 : 0.16),
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(isDark ? 0.20 : 0.06),
+            color: visuals.accent.withValues(alpha: isDark ? 0.18 : 0.08),
             blurRadius: 16,
             offset: const Offset(0, 8),
           ),
@@ -440,7 +456,12 @@ class _AppVisualSection extends StatelessWidget {
                   return Row(
                     children: [
                       for (final path in visuals.screenshots) ...[
-                        Expanded(child: _ScreenshotCard(path: path)),
+                        Expanded(
+                          child: _ScreenshotCard(
+                            path: path,
+                            accent: visuals.accent,
+                          ),
+                        ),
                         if (path != visuals.screenshots.last)
                           const SizedBox(width: 14),
                       ],
@@ -455,7 +476,10 @@ class _AppVisualSection extends StatelessWidget {
                       for (final path in visuals.screenshots) ...[
                         SizedBox(
                           width: 220,
-                          child: _ScreenshotCard(path: path),
+                          child: _ScreenshotCard(
+                            path: path,
+                            accent: visuals.accent,
+                          ),
                         ),
                         if (path != visuals.screenshots.last)
                           const SizedBox(width: 12),
@@ -473,16 +497,22 @@ class _AppVisualSection extends StatelessWidget {
 }
 
 class _VisualSet {
-  const _VisualSet({required this.promo, required this.screenshots});
+  const _VisualSet({
+    required this.promo,
+    required this.accent,
+    required this.screenshots,
+  });
 
   final String promo;
+  final Color accent;
   final List<String> screenshots;
 }
 
 class _ScreenshotCard extends StatelessWidget {
-  const _ScreenshotCard({required this.path});
+  const _ScreenshotCard({required this.path, required this.accent});
 
   final String path;
+  final Color accent;
 
   @override
   Widget build(BuildContext context) {
@@ -492,12 +522,10 @@ class _ScreenshotCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
         color: isDark
-            ? Colors.white.withOpacity(0.04)
-            : const Color(0xFFF7F8FB),
+            ? accent.withValues(alpha: 0.08)
+            : Color.alphaBlend(accent.withValues(alpha: 0.05), Colors.white),
         border: Border.all(
-          color: isDark
-              ? Colors.white.withOpacity(0.08)
-              : Colors.black.withOpacity(0.06),
+          color: accent.withValues(alpha: isDark ? 0.22 : 0.14),
         ),
       ),
       padding: const EdgeInsets.all(8),
