@@ -8,7 +8,7 @@ Date: 2026-06-16
 ## Standing Rule
 
 - Every time the website changes, increase the website version in `pubspec.yaml` before committing and pushing.
-- Current website version after this update: `1.0.0+6`.
+- Current website version after this update: `1.0.0+7`.
 - Deployment uses the generated `build/web` folder. Make sure `app-ads.txt` is inside that web folder before uploading/publishing.
 
 ## What Changed
@@ -80,3 +80,8 @@ Date: 2026-06-16
     - `/apps/EzInvoice/terms`
   - Added Terms and Conditions footer links on Kapi Note and EzInvoice app pages.
   - Verified `flutter build web` succeeds and `build/web/app-ads.txt` remains present.
+- 2026-06-16 follow-up:
+  - Removed the small Liisgo icon from the home page header, leaving only the Liisgo text.
+  - Privacy and Terms pages now show a top-left app button with the current app icon and app name.
+  - That app button navigates back to the app page being read, for example EzInvoice Terms -> EzInvoice app page.
+  - Verified visually on local build: EzInvoice Terms header and home header.

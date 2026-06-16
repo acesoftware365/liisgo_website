@@ -250,8 +250,6 @@ class _WebHeader extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Image.asset(AssetsRes.logo, height: 34),
-                const SizedBox(width: 10),
                 Text("Liisgo", style: linkStyle.copyWith(fontSize: 16)),
               ],
             ),

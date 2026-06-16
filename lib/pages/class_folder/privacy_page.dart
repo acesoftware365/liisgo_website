@@ -28,6 +28,7 @@ class KapiNotePrivacy extends StatelessWidget {
     const int indexDescription = 3;
     const int indexPrivacyGooglePlay = 4;
     const int indexPrivacyAppStore = 5;
+    const int indexAppRoute = 6;
     final bg = Theme.of(context).scaffoldBackgroundColor;
 
     return Scaffold(
@@ -45,7 +46,11 @@ class KapiNotePrivacy extends StatelessWidget {
                   delegate: _StickyHeaderDelegate(
                     minHeight: 96,
                     maxHeight: 96,
-                    child: const _WebHeader(),
+                    child: _WebHeader(
+                      appLogo: appInformationPrivacy[indexAppLogo],
+                      appName: appInformationPrivacy[indexAppName],
+                      appRoute: appInformationPrivacy[indexAppRoute],
+                    ),
                   ),
                 ),
                 const SliverToBoxAdapter(child: SizedBox(height: 14)),
@@ -155,7 +160,15 @@ class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
 /// Header: Home (left) + Settings (right) (como HomeScreen)
 /// ---------------------------
 class _WebHeader extends StatelessWidget {
-  const _WebHeader();
+  const _WebHeader({
+    required this.appLogo,
+    required this.appName,
+    required this.appRoute,
+  });
+
+  final String appLogo;
+  final String appName;
+  final String appRoute;
 
   @override
   Widget build(BuildContext context) {
@@ -186,10 +199,28 @@ class _WebHeader extends StatelessWidget {
       ),
       child: Row(
         children: [
-          _NavLink(
-            text: text.home,
-            onTap: () => GoRouter.of(context).go("/"),
-            style: linkStyle,
+          InkWell(
+            borderRadius: BorderRadius.circular(10),
+            onTap: () => GoRouter.of(context).go(appRoute),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      appLogo,
+                      width: 30,
+                      height: 30,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(appName, style: linkStyle.copyWith(fontSize: 16)),
+                ],
+              ),
+            ),
           ),
           const Spacer(),
           _NavLink(
