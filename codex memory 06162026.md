@@ -108,3 +108,9 @@ Date: 2026-06-16
     - ShowMyName dark purple/gold.
   - The reusable app visuals section now applies a subtle per-app accent tint and border based on the app icon color.
   - Website version increased to `1.0.0+9`.
+- 2026-06-16 ShowMyName color correction:
+  - Juan rejected the purple ShowMyName accent because it looked too loud.
+  - Replaced the ShowMyName promo image, screenshot frames, button color, title color, and app page accent with a darker navy blue (`#123C63`).
+  - Reduced the app-name text size in promotional images so the name does not look oversized or awkward.
+  - Corrected the EzInvoice promotional image to use the real green EzInvoice app icon (`assets/miscellaneous/EzInvoice_Icon.png`) instead of the old blue finance icon.
+  - Website version increased to `1.0.0+10`.

@@ -365,7 +365,7 @@ class _AppVisualSection extends StatelessWidget {
       case "ShowMyName":
         return const _VisualSet(
           promo: "assets/app_pages/showmyname_promo.png",
-          accent: Color(0xFFB895FF),
+          accent: Color(0xFF123C63),
           screenshots: [
             "assets/app_pages/showmyname_screen_1.png",
             "assets/app_pages/showmyname_screen_2.png",
