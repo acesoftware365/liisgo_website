@@ -413,40 +413,46 @@ class _DownloadBadges extends StatelessWidget {
       spacing: 12,
       runSpacing: 10,
       children: [
-        _BlackBadge(
-          child: InkWell(
-            onTap: () async {
-              await launchUrl(Uri.parse(appInformationApp[indexGooglePlay]));
-            },
-            child: Image.asset(AssetsRes.googlePlay, height: appStoreSize),
-          ),
+        _StoreBadge(
+          imagePath: AssetsRes.googlePlay,
+          url: appInformationApp[indexGooglePlay].toString(),
         ),
-        _BlackBadge(
-          child: InkWell(
-            onTap: () async {
-              await launchUrl(Uri.parse(appInformationApp[indexAppStore]));
-            },
-            child: Image.asset(AssetsRes.appStore, height: appStoreSize),
-          ),
+        _StoreBadge(
+          imagePath: AssetsRes.appStore,
+          url: appInformationApp[indexAppStore].toString(),
         ),
       ],
     );
   }
 }
 
-class _BlackBadge extends StatelessWidget {
-  const _BlackBadge({required this.child});
-  final Widget child;
+class _StoreBadge extends StatelessWidget {
+  const _StoreBadge({required this.imagePath, required this.url});
+
+  final String imagePath;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(14),
+    final isAvailable = url.trim().isNotEmpty;
+
+    return Opacity(
+      opacity: isAvailable ? 1 : 0.38,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: InkWell(
+          onTap: isAvailable
+              ? () async {
+                  await launchUrl(Uri.parse(url));
+                }
+              : null,
+          child: Image.asset(imagePath, height: appStoreSize),
+        ),
       ),
-      child: child,
     );
   }
 }

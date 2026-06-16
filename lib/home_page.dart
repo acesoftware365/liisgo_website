@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   static const double _maxWidth = 1100;
-  static const double _heroHeightDesktop = 360;
+  static const double _heroHeightDesktop = 420;
 
   /// ✅ tamaño badges (solo height de la imagen)
   static const double storeBadgeHeight = 120;
@@ -54,6 +54,7 @@ class HomePage extends StatelessWidget {
 
                         Text(
                           text.ourApps,
+                          key: _appsKey,
                           style: Theme.of(context).textTheme.headlineSmall
                               ?.copyWith(fontWeight: FontWeight.w800),
                         ),
@@ -232,7 +233,7 @@ class _WebHeader extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
         color: surface,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(isDark ? 0.24 : 0.07),
@@ -243,12 +244,33 @@ class _WebHeader extends StatelessWidget {
       ),
       child: Row(
         children: [
-          _NavLink(
-            text: text.home,
+          InkWell(
+            borderRadius: BorderRadius.circular(10),
             onTap: () => GoRouter.of(context).go("/"),
-            style: linkStyle,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(AssetsRes.logo, height: 34),
+                const SizedBox(width: 10),
+                Text("Liisgo", style: linkStyle.copyWith(fontSize: 16)),
+              ],
+            ),
           ),
           const Spacer(),
+          if (MediaQuery.of(context).size.width >= 520)
+            _NavLink(
+              text: text.ourApps,
+              onTap: () {
+                final currentContext = _appsKey.currentContext;
+                if (currentContext == null) return;
+                Scrollable.ensureVisible(
+                  currentContext,
+                  duration: const Duration(milliseconds: 420),
+                  curve: Curves.easeOutCubic,
+                );
+              },
+              style: linkStyle,
+            ),
           _NavLink(
             text: text.settings,
             onTap: () => GoRouter.of(context).go("/settings"),
@@ -259,6 +281,8 @@ class _WebHeader extends StatelessWidget {
     );
   }
 }
+
+final GlobalKey _appsKey = GlobalKey();
 
 class _NavLink extends StatefulWidget {
   const _NavLink({
@@ -360,6 +384,10 @@ class _HeroSection extends StatelessWidget {
                             context,
                           ).textTheme.bodyLarge?.copyWith(color: bodyColor),
                         ),
+                        const SizedBox(height: 18),
+                        const _HeroActions(),
+                        const Spacer(),
+                        const _HeroStats(),
                       ],
                     ),
                   ),
@@ -387,6 +415,10 @@ class _HeroSection extends StatelessWidget {
                     context,
                   ).textTheme.bodyLarge?.copyWith(color: bodyColor),
                 ),
+                const SizedBox(height: 18),
+                const _HeroActions(),
+                const SizedBox(height: 16),
+                const _HeroStats(),
                 const SizedBox(height: 14),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(14),
@@ -399,6 +431,103 @@ class _HeroSection extends StatelessWidget {
                 ),
               ],
             ),
+    );
+  }
+}
+
+class _HeroActions extends StatelessWidget {
+  const _HeroActions();
+
+  @override
+  Widget build(BuildContext context) {
+    final text = AppText.of(context);
+
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: [
+        FilledButton.icon(
+          onPressed: () {
+            final currentContext = _appsKey.currentContext;
+            if (currentContext == null) return;
+            Scrollable.ensureVisible(
+              currentContext,
+              duration: const Duration(milliseconds: 420),
+              curve: Curves.easeOutCubic,
+            );
+          },
+          icon: const Icon(Icons.apps),
+          label: Text(text.exploreApps),
+        ),
+        OutlinedButton.icon(
+          onPressed: () async {
+            await launchUrl(Uri.parse("mailto:sales@liisgo.com"));
+          },
+          icon: const Icon(Icons.mail_outline),
+          label: Text(text.contactSales),
+        ),
+      ],
+    );
+  }
+}
+
+class _HeroStats extends StatelessWidget {
+  const _HeroStats();
+
+  @override
+  Widget build(BuildContext context) {
+    final text = AppText.of(context);
+
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: [
+        _StatPill(value: "4", label: text.appsAvailable),
+        _StatPill(value: "iOS + Android", label: text.mobileFirst),
+      ],
+    );
+  }
+}
+
+class _StatPill extends StatelessWidget {
+  const _StatPill({required this.value, required this.label});
+
+  final String value;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
+      decoration: BoxDecoration(
+        color: isDark
+            ? Colors.white.withOpacity(0.06)
+            : Colors.white.withOpacity(0.72),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: isDark
+              ? Colors.white.withOpacity(0.08)
+              : Colors.black.withOpacity(0.06),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(value, style: const TextStyle(fontWeight: FontWeight.w900)),
+          const SizedBox(width: 6),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              color: Theme.of(
+                context,
+              ).textTheme.bodySmall?.color?.withOpacity(0.72),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -579,7 +708,7 @@ class _DownloadLeft extends StatelessWidget {
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
         ),
         const SizedBox(height: 4),
-        Text(text.mobilePlatforms, style: TextStyle(color: muted, height: 1.2)),
+        Text(text.selectAnApp, style: TextStyle(color: muted, height: 1.2)),
       ],
     );
   }
@@ -595,15 +724,21 @@ class _DownloadBadges extends StatelessWidget {
       runSpacing: 10,
       children: [
         _BlackBadge(
-          child: Image.asset(
-            AssetsRes.googlePlay,
-            height: HomePage.storeBadgeHeight,
+          child: InkWell(
+            onTap: () => GoRouter.of(context).go("/apps/KapiNote"),
+            child: Image.asset(
+              AssetsRes.googlePlay,
+              height: HomePage.storeBadgeHeight,
+            ),
           ),
         ),
         _BlackBadge(
-          child: Image.asset(
-            AssetsRes.appStore,
-            height: HomePage.storeBadgeHeight,
+          child: InkWell(
+            onTap: () => GoRouter.of(context).go("/apps/KapiNote"),
+            child: Image.asset(
+              AssetsRes.appStore,
+              height: HomePage.storeBadgeHeight,
+            ),
           ),
         ),
       ],

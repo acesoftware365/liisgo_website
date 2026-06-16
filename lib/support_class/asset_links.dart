@@ -6,8 +6,7 @@ class AssetsLinks {
 
   static const String ezInvoiceGooglePlayLink =
       "https://play.google.com/store/apps/details?id=com.liisgo.ezinvoice&hl=en_US";
-  static const String ezInvoiceAppleAppStore =
-      "https://apps.apple.com/app/kapi-note/id6752557170";// TODO: reemplaza con el ID real
+  static const String ezInvoiceAppleAppStore = "";
 
   // ShowMyName
   static const String showMyNameGooglePlayLink =
@@ -17,7 +16,7 @@ class AssetsLinks {
 
   // Alpha Discovery
   static const String alphaDiscoveryGooglePlayLink =
-      "https://play.google.com/store/apps/details?id=com.liisgo.alphadiscovery";// TODO: reemplaza con el ID real
+      "https://play.google.com/store/apps/details?id=com.liisgo.alphadiscovery";
   static const String alphaDiscoveryAppleAppStore =
-      "https://apps.apple.com/app/alpha-discovery/id1234567890";// TODO: reemplaza con el ID real
+      "https://apps.apple.com/us/app/alpha-discovery/id6777330910";
 }

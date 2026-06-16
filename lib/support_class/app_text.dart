@@ -21,17 +21,28 @@ class AppText {
   String get settings => chooseText(es: 'Configuración', en: 'Settings');
   String get ourApps => chooseText(es: 'Nuestras apps', en: 'Our Apps');
   String get homeIntro => chooseText(
-    es: 'Herramientas simples y útiles creadas por Liisgo LLC.',
-    en: 'Simple, useful tools built by Liisgo LLC.',
+    es: 'Apps simples y útiles para productividad, negocios y aprendizaje temprano.',
+    en: 'Simple, useful apps for productivity, business, and early learning.',
   );
   String get heroTitle => chooseText(
-    es: 'Trabaja con más inteligencia.\nAvanza más rápido.',
-    en: 'Build smarter.\nWork faster.',
+    es: 'Apps prácticas para el día a día.',
+    en: 'Practical apps for everyday work.',
   );
   String get heroBody => chooseText(
-    es: 'Liisgo crea apps limpias y prácticas para la productividad diaria.',
-    en: 'Liisgo creates clean and practical apps for everyday productivity.',
+    es: 'Liisgo LLC crea herramientas móviles limpias, rápidas y fáciles de usar para resolver tareas reales sin complicar el flujo.',
+    en: 'Liisgo LLC builds clean, fast, easy-to-use mobile tools that solve real tasks without getting in the way.',
   );
+  String get exploreApps => chooseText(es: 'Ver apps', en: 'View apps');
+  String get contactSales => chooseText(es: 'Contactar', en: 'Contact');
+  String get selectAnApp => chooseText(
+    es: 'Elige una app para descargarla en tu tienda preferida.',
+    en: 'Choose an app to download it from your preferred store.',
+  );
+  String get appsAvailable =>
+      chooseText(es: 'apps publicadas', en: 'published apps');
+  String get mobileFirst => chooseText(es: 'diseño móvil', en: 'mobile-first');
+  String get privacyFocused =>
+      chooseText(es: 'privacidad clara', en: 'clear privacy');
   String get scoreNotes =>
       chooseText(es: 'Puntuación / notas', en: 'Scoreboard / notes');
   String get invoicesPdf =>
