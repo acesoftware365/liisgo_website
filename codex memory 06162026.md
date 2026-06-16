@@ -8,7 +8,8 @@ Date: 2026-06-16
 ## Standing Rule
 
 - Every time the website changes, increase the website version in `pubspec.yaml` before committing and pushing.
-- Current website version after this update: `1.0.0+4`.
+- Current website version after this update: `1.0.0+5`.
+- Deployment uses the generated `build/web` folder. Make sure `app-ads.txt` is inside that web folder before uploading/publishing.
 
 ## What Changed
 
@@ -63,9 +64,10 @@ Date: 2026-06-16
 
 ## Notes For Next Time
 
-- EzInvoice still needs its real App Store URL when published or found.
+- EzInvoice still needs its real App Store URL when published or found. As of 2026-06-16, Apple developer search for Liisgo LLC lists Kapi Note, ShowMyName Display, and Alpha Discovery, but not EzInvoice.
 - `build/web` was generated successfully but is not necessarily tracked by Git, depending on `.gitignore`.
 - The repository already has many existing informational lint warnings. They were not part of this change.
 - A generated hero image was briefly created during early exploration before the real project path was provided. It was not used in the Flutter project.
 - The user wants changes pushed to GitHub repo `acesoftware365/liisgo_website`.
 - The user said this GitHub repo is where the website is uploaded, and the website version must be increased every time changes are made.
+- The user uploads/publishes the website from the `build/web` folder, with `app-ads.txt` included inside it.
