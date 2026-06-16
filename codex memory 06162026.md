@@ -8,7 +8,7 @@ Date: 2026-06-16
 ## Standing Rule
 
 - Every time the website changes, increase the website version in `pubspec.yaml` before committing and pushing.
-- Current website version after this update: `1.0.0+5`.
+- Current website version after this update: `1.0.0+6`.
 - Deployment uses the generated `build/web` folder. Make sure `app-ads.txt` is inside that web folder before uploading/publishing.
 
 ## What Changed
@@ -71,3 +71,12 @@ Date: 2026-06-16
 - The user wants changes pushed to GitHub repo `acesoftware365/liisgo_website`.
 - The user said this GitHub repo is where the website is uploaded, and the website version must be increased every time changes are made.
 - The user uploads/publishes the website from the `build/web` folder, with `app-ads.txt` included inside it.
+- 2026-06-16 update:
+  - Updated Kapi Note website info using the Kapi Note project copy.
+  - Updated EzInvoice website info using the EzInvoice project facts: invoices, PDFs, customers, reports, business profile, invoice styles, Pro features, subscriptions, and ad-free plan behavior.
+  - Added EzInvoice App Store link: `https://apps.apple.com/app/id6757661737`.
+  - Added Terms and Conditions routes/pages for Kapi Note and EzInvoice:
+    - `/apps/KapiNote/terms`
+    - `/apps/EzInvoice/terms`
+  - Added Terms and Conditions footer links on Kapi Note and EzInvoice app pages.
+  - Verified `flutter build web` succeeds and `build/web/app-ads.txt` remains present.

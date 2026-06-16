@@ -6,7 +6,8 @@ class AssetsLinks {
 
   static const String ezInvoiceGooglePlayLink =
       "https://play.google.com/store/apps/details?id=com.liisgo.ezinvoice&hl=en_US";
-  static const String ezInvoiceAppleAppStore = "";
+  static const String ezInvoiceAppleAppStore =
+      "https://apps.apple.com/app/id6757661737";
 
   // ShowMyName
   static const String showMyNameGooglePlayLink =

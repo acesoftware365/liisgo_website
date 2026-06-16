@@ -61,6 +61,8 @@ class AppText {
   );
   String get privacyPolicy =>
       chooseText(es: 'Política de privacidad', en: 'Privacy Policy');
+  String get termsAndConditions =>
+      chooseText(es: 'Términos y condiciones', en: 'Terms and Conditions');
   String get googleAnalyticsPrivacy => chooseText(
     es: 'Privacidad de Google Analytics',
     en: 'Google Analytics Privacy',

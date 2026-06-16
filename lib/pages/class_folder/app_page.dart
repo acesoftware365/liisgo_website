@@ -21,6 +21,7 @@ const int indexGooglePlay = 3;
 const int indexAppStore = 4;
 const int indexAppBackBottom = 5; // compatibilidad
 const int indexPrivacy = 6;
+const int indexTerms = 7;
 
 class AppPage extends StatelessWidget {
   final String appTitle;
@@ -486,6 +487,15 @@ class _Footer extends StatelessWidget {
             },
             child: Text(text.privacyPolicy),
           ),
+          if (appInformationApp.length > indexTerms)
+            TextButton(
+              onPressed: () {
+                GoRouter.of(
+                  context,
+                ).go(GoRouterLinks.termsPages[appInformationApp[indexTerms]]);
+              },
+              child: Text(text.termsAndConditions),
+            ),
           TextButton(
             onPressed: () async {
               await launchUrl(Uri.parse(GoRouterLinks.googlePrivacyPages[1]));

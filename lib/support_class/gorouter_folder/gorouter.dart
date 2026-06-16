@@ -69,6 +69,15 @@ final GoRouter router = GoRouter(
         );
       },
     ),
+    GoRoute(
+      path: '/apps/KapiNote/terms',
+      builder: (BuildContext context, GoRouterState state) {
+        final isEs = AppText.of(context).isEs;
+        return KapiNotePrivacy(
+          appInformationPrivacy: ParameterClass.kapiNoteInformationTerms(isEs),
+        );
+      },
+    ),
 
     // EzInvoice Routes
     GoRoute(
@@ -89,6 +98,15 @@ final GoRouter router = GoRouter(
           appInformationPrivacy: ParameterClass.ezInvoiceInformationPrivacy(
             isEs,
           ),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/apps/EzInvoice/terms',
+      builder: (BuildContext context, GoRouterState state) {
+        final isEs = AppText.of(context).isEs;
+        return KapiNotePrivacy(
+          appInformationPrivacy: ParameterClass.ezInvoiceInformationTerms(isEs),
         );
       },
     ),

@@ -33,6 +33,15 @@ class GoRouterLinks {
     "/apps/AlphaDiscovery/privacy",
   ];
 
+  static const List termsPages = [
+    "/",
+    "/apps/KapiNote/terms",
+    "/apps/ComingSoon/terms",
+    "/apps/EzInvoice/terms",
+    "/apps/ShowMyName/terms",
+    "/apps/AlphaDiscovery/terms",
+  ];
+
   static const List appPages = [
     "/",
     "/apps/KapiNote",
@@ -59,20 +68,26 @@ class ParameterClass {
           "el dominó y quería una forma más fácil de llevar el control de mis puntuaciones."
           "\n\nSu propósito principal es servir como un sistema confiable para llevar puntuaciones, "
           "eliminando la necesidad de usar papel y lápiz. Fue diseñada para ser "
-          "intuitiva, permitiéndote administrar tus juegos de forma rápida y sencilla."
-          " Agradezco tus comentarios para futuras mejoras.",
+          "intuitiva y flexible, permitiéndote administrar partidas, jugadores y "
+          "puntuaciones de forma rápida y sencilla.\n\nKapi Note está pensada para "
+          "partidas casuales, familiares o competitivas donde necesitas una forma "
+          "clara de seguir el marcador, ajustar el tamaño del score y compartir la app "
+          "con otros jugadores.",
       en:
           "This tool was developed with a focus on simplicity and functionality. "
           "I created it as a personal project because, like you, I'm passionate "
           "about dominoes and wanted an easier way to keep track of my scores."
           "\n\nIts main purpose is to serve as a reliable scorekeeping system, "
           "eliminating the need for paper and pencil. It was designed to be "
-          "intuitive, allowing you to manage your games quickly and effortlessly."
-          " I appreciate your feedback for future improvements.",
+          "intuitive and flexible, allowing you to manage games, players, and scores "
+          "quickly and effortlessly.\n\nKapi Note is built for casual, family, or "
+          "competitive matches where you need a clear way to follow the scoreboard, "
+          "adjust score size, and share the app with other players.",
     ),
     AssetsLinks.kapiNoteGooglePlayLink,
     AssetsLinks.kapiNoteAppleAppStore,
     "/",
+    1,
     1,
   ];
 
@@ -121,6 +136,35 @@ class ParameterClass {
     1,
   ];
 
+  static List kapiNoteInformationTerms(bool isEs) => [
+    AssetsRes.imagesList[1],
+    "Kapi Note",
+    _t(isEs, es: "Términos y condiciones", en: "Terms and Conditions"),
+    _t(
+      isEs,
+      es:
+          "Al usar Kapi Note, aceptas usar la app de forma responsable y únicamente para llevar el control de puntuaciones de dominó u otros juegos compatibles con su funcionamiento.\n\n"
+          "Kapi Note se ofrece como una herramienta de apoyo para registrar puntuaciones. El usuario es responsable de revisar que los nombres, equipos, puntos y resultados introducidos sean correctos.\n\n"
+          "La app puede incluir anuncios o servicios de terceros como Google Ads, Google Analytics o servicios similares para mejorar la experiencia, medir rendimiento y sostener el desarrollo. El uso de esos servicios está sujeto a las políticas de sus proveedores.\n\n"
+          "No debes intentar modificar, copiar, revender, descompilar o usar la app de una forma que afecte su seguridad, funcionamiento o disponibilidad.\n\n"
+          "La app se proporciona tal como está. Aunque trabajamos para mantenerla estable y útil, no garantizamos que esté libre de errores o disponible sin interrupciones. Liisgo LLC no será responsable por pérdidas derivadas del uso o imposibilidad de uso de la app.\n\n"
+          "Podemos actualizar estos términos ocasionalmente. El uso continuo de Kapi Note después de un cambio significa que aceptas los términos actualizados.\n\n"
+          "Para preguntas o soporte, contáctanos en sales@liisgo.com.",
+      en:
+          "By using Kapi Note, you agree to use the app responsibly and only for tracking domino scores or other games compatible with its functionality.\n\n"
+          "Kapi Note is provided as a support tool for recording scores. You are responsible for checking that names, teams, points, and results entered into the app are accurate.\n\n"
+          "The app may include ads or third-party services such as Google Ads, Google Analytics, or similar services to improve the experience, measure performance, and support development. Use of those services is subject to their providers' policies.\n\n"
+          "You may not attempt to modify, copy, resell, decompile, or use the app in a way that affects its security, operation, or availability.\n\n"
+          "The app is provided as is. Although we work to keep it stable and useful, we do not guarantee that it will be error-free or available without interruption. Liisgo LLC is not responsible for losses resulting from use of the app or inability to use it.\n\n"
+          "We may update these terms from time to time. Continued use of Kapi Note after a change means you accept the updated terms.\n\n"
+          "For questions or support, contact us at sales@liisgo.com.",
+    ),
+    AssetsLinks.kapiNoteGooglePlayLink,
+    AssetsLinks.kapiNoteAppleAppStore,
+    "/apps/KapiNote",
+    1,
+  ];
+
   static List comingSoonInformationApp(bool isEs) => [
     AssetsRes.imagesList[2],
     _t(isEs, es: "Próximamente", en: "Coming Soon"),
@@ -148,29 +192,28 @@ class ParameterClass {
     _t(
       isEs,
       es:
-          "EzInvoice es una app de facturación simple y profesional diseñada para pequeños "
-          "negocios, freelancers y profesionales independientes. La app te ayuda a "
-          "crear, administrar y enviar facturas de forma rápida y eficiente desde tu "
-          "dispositivo móvil.\n\nCon EzInvoice, puedes generar facturas profesionales en PDF, "
-          "dar seguimiento al estado de pago, administrar clientes y ver reportes de ventas por mes "
-          "o por año. La app está creada con una interfaz limpia e intuitiva, permitiéndote "
-          "enfocarte en tu negocio en lugar del papeleo.\n\nEzInvoice funciona "
-          "sin complicaciones en teléfonos y tabletas, ayudándote a mantenerte organizado, en cumplimiento "
-          "y en control de tus finanzas dondequiera que estés.",
+          "EzInvoice es una app de facturación simple y profesional para pequeños negocios, "
+          "freelancers y profesionales independientes. Te ayuda a crear facturas, generar "
+          "PDF, administrar clientes y revisar reportes desde tu dispositivo móvil.\n\n"
+          "La app incluye herramientas para estados de factura como borrador, enviada o pagada; "
+          "reportes por periodo; perfiles de negocio; estilos de factura; y funciones Pro como "
+          "facturas ilimitadas, reportes avanzados y experiencia sin anuncios según el plan disponible.\n\n"
+          "EzInvoice está diseñada para trabajar rápido desde teléfono o tableta, con una interfaz "
+          "limpia para que puedas enfocarte en cobrar, organizar tu negocio y mantener tus registros al día.",
       en:
-          "EzInvoice is a simple and professional invoicing app designed for small "
-          "businesses, freelancers, and independent professionals. The app helps "
-          "you create, manage, and send invoices quickly and efficiently from your "
-          "mobile device.\n\nWith EzInvoice, you can generate professional PDF invoices, "
-          "track payment status, manage customers, and view sales reports by month "
-          "or year. The app is built with a clean and intuitive interface, allowing "
-          "you to focus on your business instead of paperwork.\n\nEzInvoice works "
-          "seamlessly on phones and tablets, helping you stay organized, compliant, "
-          "and in control of your finances wherever you are.",
+          "EzInvoice is a simple, professional invoicing app for small businesses, "
+          "freelancers, and independent professionals. It helps you create invoices, "
+          "generate PDFs, manage customers, and review reports from your mobile device.\n\n"
+          "The app includes tools for invoice statuses such as draft, sent, and paid; "
+          "period reports; business profiles; invoice styles; and Pro features such as "
+          "unlimited invoices, advanced reports, and an ad-free experience depending on the available plan.\n\n"
+          "EzInvoice is designed for fast work on phones and tablets, with a clean interface "
+          "so you can focus on getting paid, organizing your business, and keeping records up to date.",
     ),
     AssetsLinks.ezInvoiceGooglePlayLink,
     AssetsLinks.ezInvoiceAppleAppStore,
     "/",
+    3,
     3,
   ];
 
@@ -242,6 +285,35 @@ class ParameterClass {
           'purposes, such as accounting, compliance, or fraud prevention.\n\n'
           'For more information or privacy-related questions, please visit our website: '
           'https://liisgo.com/#/apps/EzInvoice/privacy',
+    ),
+    AssetsLinks.ezInvoiceGooglePlayLink,
+    AssetsLinks.ezInvoiceAppleAppStore,
+    "/apps/EzInvoice",
+    3,
+  ];
+
+  static List ezInvoiceInformationTerms(bool isEs) => [
+    AssetsRes.imagesList[3],
+    "EzInvoice",
+    _t(isEs, es: "Términos y condiciones", en: "Terms and Conditions"),
+    _t(
+      isEs,
+      es:
+          "Al usar EzInvoice, aceptas usar la app de forma responsable para crear, administrar, exportar y compartir facturas, clientes, reportes y datos relacionados con tu negocio.\n\n"
+          "El usuario es responsable de la exactitud de toda la información ingresada, incluyendo datos del negocio, clientes, artículos, precios, impuestos, propinas, estados de pago y cualquier información incluida en facturas o reportes. EzInvoice no ofrece asesoría legal, contable, fiscal o financiera.\n\n"
+          "Las funciones Pro, incluyendo facturas ilimitadas, reportes avanzados, estilos premium o experiencia sin anuncios, pueden requerir una compra o suscripción. Los pagos, renovaciones, cancelaciones y reembolsos son administrados por Apple App Store o Google Play según la plataforma usada. Puedes administrar o cancelar suscripciones desde la configuración de tu cuenta de tienda.\n\n"
+          "No debes usar EzInvoice para actividades ilegales, fraudulentas, engañosas o no autorizadas. Tampoco debes intentar modificar, copiar, revender, descompilar o interferir con la seguridad o disponibilidad de la app.\n\n"
+          "EzInvoice se proporciona tal como está. Aunque trabajamos para mantener la app estable y precisa, no garantizamos que esté libre de errores, disponible sin interrupciones o adecuada para todos los requisitos comerciales, fiscales o regulatorios. Liisgo LLC no será responsable por pérdidas derivadas del uso o imposibilidad de uso de la app.\n\n"
+          "Podemos actualizar estos términos ocasionalmente. El uso continuo de EzInvoice después de un cambio significa que aceptas los términos actualizados.\n\n"
+          "Para preguntas, soporte o asuntos relacionados con cuenta, contáctanos en sales@liisgo.com.",
+      en:
+          "By using EzInvoice, you agree to use the app responsibly to create, manage, export, and share invoices, customers, reports, and related business data.\n\n"
+          "You are responsible for the accuracy of all information entered, including business details, customers, items, prices, taxes, tips, payment statuses, and any information included in invoices or reports. EzInvoice does not provide legal, accounting, tax, or financial advice.\n\n"
+          "Pro features, including unlimited invoices, advanced reports, premium styles, or an ad-free experience, may require a purchase or subscription. Payments, renewals, cancellations, and refunds are managed by Apple App Store or Google Play depending on the platform used. You can manage or cancel subscriptions from your store account settings.\n\n"
+          "You may not use EzInvoice for illegal, fraudulent, misleading, or unauthorized activity. You may also not attempt to modify, copy, resell, decompile, or interfere with the security or availability of the app.\n\n"
+          "EzInvoice is provided as is. Although we work to keep the app stable and accurate, we do not guarantee that it will be error-free, available without interruption, or suitable for every business, tax, or regulatory requirement. Liisgo LLC is not responsible for losses resulting from use of the app or inability to use it.\n\n"
+          "We may update these terms from time to time. Continued use of EzInvoice after a change means you accept the updated terms.\n\n"
+          "For questions, support, or account-related matters, contact us at sales@liisgo.com.",
     ),
     AssetsLinks.ezInvoiceGooglePlayLink,
     AssetsLinks.ezInvoiceAppleAppStore,
