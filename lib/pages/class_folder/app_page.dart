@@ -65,6 +65,8 @@ class AppPage extends StatelessWidget {
                       children: [
                         _AppHero(appInformationApp: appInformationApp),
                         const SizedBox(height: 22),
+                        _AppVisualSection(appTitle: appTitle),
+                        const SizedBox(height: 22),
                         _DownloadStrip(appInformationApp: appInformationApp),
                         const SizedBox(height: 22),
                         _Footer(appInformationApp: appInformationApp),
@@ -328,6 +330,183 @@ class _AppLogo extends StatelessWidget {
         width: size,
         height: size,
         fit: BoxFit.contain,
+      ),
+    );
+  }
+}
+
+class _AppVisualSection extends StatelessWidget {
+  const _AppVisualSection({required this.appTitle});
+
+  final String appTitle;
+
+  _VisualSet get _visuals {
+    switch (appTitle) {
+      case "Kapi Note":
+        return const _VisualSet(
+          promo: "assets/app_pages/kapi_note_promo.png",
+          screenshots: [
+            "assets/app_pages/kapi_note_screen_1.png",
+            "assets/app_pages/kapi_note_screen_2.png",
+            "assets/app_pages/kapi_note_screen_3.png",
+          ],
+        );
+      case "EzInvoice":
+        return const _VisualSet(
+          promo: "assets/app_pages/ezinvoice_promo.png",
+          screenshots: [
+            "assets/app_pages/ezinvoice_screen_1.png",
+            "assets/app_pages/ezinvoice_screen_2.png",
+            "assets/app_pages/ezinvoice_screen_3.png",
+          ],
+        );
+      case "ShowMyName":
+        return const _VisualSet(
+          promo: "assets/app_pages/showmyname_promo.png",
+          screenshots: [
+            "assets/app_pages/showmyname_screen_1.png",
+            "assets/app_pages/showmyname_screen_2.png",
+            "assets/app_pages/showmyname_screen_3.png",
+          ],
+        );
+      case "Alpha Discovery":
+        return const _VisualSet(
+          promo: "assets/app_pages/alpha_discovery_promo.png",
+          screenshots: [
+            "assets/app_pages/alpha_discovery_screen_1.png",
+            "assets/app_pages/alpha_discovery_screen_2.png",
+            "assets/app_pages/alpha_discovery_screen_3.png",
+          ],
+        );
+      default:
+        return const _VisualSet(
+          promo: "assets/app_pages/kapi_note_promo.png",
+          screenshots: [],
+        );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final text = AppText.of(context);
+    final visuals = _visuals;
+    final surface = Theme.of(context).colorScheme.surface;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final muted = Theme.of(
+      context,
+    ).textTheme.bodyMedium?.color?.withOpacity(0.70);
+
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: surface,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(isDark ? 0.20 : 0.06),
+            blurRadius: 16,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            text.promotionalImage,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
+          ),
+          const SizedBox(height: 12),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: AspectRatio(
+              aspectRatio: 1200 / 586,
+              child: Image.asset(visuals.promo, fit: BoxFit.cover),
+            ),
+          ),
+          if (visuals.screenshots.isNotEmpty) ...[
+            const SizedBox(height: 18),
+            Text(
+              text.appScreenshots,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
+            ),
+            const SizedBox(height: 4),
+            Text(appTitle, style: TextStyle(color: muted)),
+            const SizedBox(height: 12),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final isWide = constraints.maxWidth >= 760;
+                if (isWide) {
+                  return Row(
+                    children: [
+                      for (final path in visuals.screenshots) ...[
+                        Expanded(child: _ScreenshotCard(path: path)),
+                        if (path != visuals.screenshots.last)
+                          const SizedBox(width: 14),
+                      ],
+                    ],
+                  );
+                }
+
+                return SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      for (final path in visuals.screenshots) ...[
+                        SizedBox(
+                          width: 220,
+                          child: _ScreenshotCard(path: path),
+                        ),
+                        if (path != visuals.screenshots.last)
+                          const SizedBox(width: 12),
+                      ],
+                    ],
+                  ),
+                );
+              },
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _VisualSet {
+  const _VisualSet({required this.promo, required this.screenshots});
+
+  final String promo;
+  final List<String> screenshots;
+}
+
+class _ScreenshotCard extends StatelessWidget {
+  const _ScreenshotCard({required this.path});
+
+  final String path;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        color: isDark
+            ? Colors.white.withOpacity(0.04)
+            : const Color(0xFFF7F8FB),
+        border: Border.all(
+          color: isDark
+              ? Colors.white.withOpacity(0.08)
+              : Colors.black.withOpacity(0.06),
+        ),
+      ),
+      padding: const EdgeInsets.all(8),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: AspectRatio(
+          aspectRatio: 720 / 1280,
+          child: Image.asset(path, fit: BoxFit.cover),
+        ),
       ),
     );
   }

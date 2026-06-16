@@ -8,7 +8,7 @@ Date: 2026-06-16
 ## Standing Rule
 
 - Every time the website changes, increase the website version in `pubspec.yaml` before committing and pushing.
-- Current website version after this update: `1.0.0+7`.
+- Current website version after this update: `1.0.0+8`.
 - Deployment uses the generated `build/web` folder. Make sure `app-ads.txt` is inside that web folder before uploading/publishing.
 
 ## What Changed
@@ -85,3 +85,13 @@ Date: 2026-06-16
   - Privacy and Terms pages now show a top-left app button with the current app icon and app name.
   - That app button navigates back to the app page being read, for example EzInvoice Terms -> EzInvoice app page.
   - Verified visually on local build: EzInvoice Terms header and home header.
+- 2026-06-16 visual app pages update:
+  - Added `assets/app_pages/` to Flutter assets.
+  - Added promotional images and screenshot-style app visuals for:
+    - Kapi Note
+    - EzInvoice
+    - Alpha Discovery
+    - ShowMyName
+  - Added a reusable app visuals section to app detail pages between the hero and download area.
+  - Verified visually on local build for EzInvoice and Alpha Discovery.
+  - Website version increased to `1.0.0+8`.

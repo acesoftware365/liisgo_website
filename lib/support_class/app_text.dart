@@ -59,6 +59,10 @@ class AppText {
     es: 'Disponible en plataformas móviles',
     en: 'Available on mobile platforms',
   );
+  String get promotionalImage =>
+      chooseText(es: 'Imagen promocional', en: 'Promotional image');
+  String get appScreenshots =>
+      chooseText(es: 'Capturas de la app', en: 'App screenshots');
   String get privacyPolicy =>
       chooseText(es: 'Política de privacidad', en: 'Privacy Policy');
   String get termsAndConditions =>
