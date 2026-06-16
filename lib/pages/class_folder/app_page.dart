@@ -518,22 +518,153 @@ class _ScreenshotCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return Container(
-      decoration: BoxDecoration(
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
         borderRadius: BorderRadius.circular(14),
-        color: isDark
-            ? accent.withValues(alpha: 0.08)
-            : Color.alphaBlend(accent.withValues(alpha: 0.05), Colors.white),
-        border: Border.all(
-          color: accent.withValues(alpha: isDark ? 0.22 : 0.14),
+        onTap: () => showDialog<void>(
+          context: context,
+          builder: (_) => _ScreenshotZoomDialog(path: path, accent: accent),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: isDark
+                ? accent.withValues(alpha: 0.08)
+                : Color.alphaBlend(
+                    accent.withValues(alpha: 0.05),
+                    Colors.white,
+                  ),
+            border: Border.all(
+              color: accent.withValues(alpha: isDark ? 0.22 : 0.14),
+            ),
+          ),
+          padding: const EdgeInsets.all(8),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: AspectRatio(
+              aspectRatio: 720 / 1280,
+              child: Image.asset(path, fit: BoxFit.cover),
+            ),
+          ),
         ),
       ),
-      padding: const EdgeInsets.all(8),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: AspectRatio(
-          aspectRatio: 720 / 1280,
-          child: Image.asset(path, fit: BoxFit.cover),
+    );
+  }
+}
+
+class _ScreenshotZoomDialog extends StatefulWidget {
+  const _ScreenshotZoomDialog({required this.path, required this.accent});
+
+  final String path;
+  final Color accent;
+
+  @override
+  State<_ScreenshotZoomDialog> createState() => _ScreenshotZoomDialogState();
+}
+
+class _ScreenshotZoomDialogState extends State<_ScreenshotZoomDialog> {
+  final TransformationController _controller = TransformationController();
+  double _scale = 1;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _setScale(double scale) {
+    final nextScale = scale.clamp(1.0, 4.0);
+    setState(() {
+      _scale = nextScale;
+      _controller.value = Matrix4.identity()
+        ..scaleByDouble(nextScale, nextScale, nextScale, 1);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    return Dialog(
+      insetPadding: const EdgeInsets.all(16),
+      backgroundColor: Colors.black.withValues(alpha: 0.88),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: size.width * 0.94,
+          maxHeight: size.height * 0.88,
+        ),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(14, 56, 14, 74),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: InteractiveViewer(
+                  transformationController: _controller,
+                  minScale: 1,
+                  maxScale: 4,
+                  child: Center(
+                    child: Image.asset(widget.path, fit: BoxFit.contain),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 10,
+              right: 10,
+              child: IconButton.filled(
+                tooltip: 'Close',
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const Icon(Icons.close),
+              ),
+            ),
+            Positioned(
+              left: 14,
+              right: 14,
+              bottom: 14,
+              child: Center(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 8,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.72),
+                    borderRadius: BorderRadius.circular(999),
+                    border: Border.all(
+                      color: widget.accent.withValues(alpha: 0.50),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton.filled(
+                        tooltip: 'Zoom out',
+                        onPressed: () => _setScale(_scale - 0.5),
+                        icon: const Icon(Icons.remove),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          '${(_scale * 100).round()}%',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      IconButton.filled(
+                        tooltip: 'Zoom in',
+                        onPressed: () => _setScale(_scale + 0.5),
+                        icon: const Icon(Icons.add),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

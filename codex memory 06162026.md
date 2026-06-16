@@ -114,3 +114,7 @@ Date: 2026-06-16
   - Reduced the app-name text size in promotional images so the name does not look oversized or awkward.
   - Corrected the EzInvoice promotional image to use the real green EzInvoice app icon (`assets/miscellaneous/EzInvoice_Icon.png`) instead of the old blue finance icon.
   - Website version increased to `1.0.0+10`.
+- 2026-06-16 Screenshot viewer update:
+  - Added a popup viewer for app screenshots so visitors can click a screenshot, read it larger, and use zoom in / zoom out controls.
+  - Kept the existing app page layout and visual styling unchanged outside the screenshot click behavior.
+  - Website version increased to `1.0.0+11`.
