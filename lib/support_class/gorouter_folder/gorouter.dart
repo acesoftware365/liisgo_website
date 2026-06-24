@@ -5,6 +5,7 @@ import '../../pages/class_folder/about_pages.dart';
 import '../../pages/class_folder/app_page.dart';
 import '../../pages/class_folder/privacy_page.dart';
 import '../../pages/class_folder/settings_page.dart';
+import '../../pages/class_folder/wakenow_shared_alarm_page.dart';
 import '../app_text.dart';
 import 'gorouter_links.dart';
 
@@ -160,6 +161,14 @@ final GoRouter router = GoRouter(
       path: '/settings',
       builder: (BuildContext context, GoRouterState state) {
         return const SettingsPage();
+      },
+    ),
+    GoRoute(
+      path: '/wakenow/shared-alarm/:payload',
+      builder: (BuildContext context, GoRouterState state) {
+        return WakeNowSharedAlarmPage(
+          payload: state.pathParameters['payload'] ?? '',
+        );
       },
     ),
   ],

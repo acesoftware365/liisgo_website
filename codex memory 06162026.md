@@ -118,3 +118,9 @@ Date: 2026-06-16
   - Added a popup viewer for app screenshots so visitors can click a screenshot, read it larger, and use zoom in / zoom out controls.
   - Kept the existing app page layout and visual styling unchanged outside the screenshot click behavior.
   - Website version increased to `1.0.0+11`.
+- 2026-06-23 WakeNow shared alarm link update:
+  - Added support for `/wakenow/shared-alarm/:payload` as a simple WakeNow landing page instead of a 404.
+  - Direct non-hash URLs are handled in `web/index.html` with Android intent redirect to package `com.liisgo.wakenow` and a fallback page/button.
+  - Added Netlify `_redirects` so `/wakenow/shared-alarm/*` serves `index.html`.
+  - Added `web/.well-known/assetlinks.json` with WakeNow package name and an empty fingerprint list until Juan provides the SHA-256 certificate fingerprint.
+  - Website version increased to `1.0.0+12`.
