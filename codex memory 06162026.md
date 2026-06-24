@@ -124,3 +124,7 @@ Date: 2026-06-16
   - Added Netlify `_redirects` so `/wakenow/shared-alarm/*` serves `index.html`.
   - Added `web/.well-known/assetlinks.json` with WakeNow package name and an empty fingerprint list until Juan provides the SHA-256 certificate fingerprint.
   - Website version increased to `1.0.0+12`.
+- 2026-06-23 WakeNow Android App Links fingerprint update:
+  - Updated `web/.well-known/assetlinks.json` with the testing APK SHA-256 fingerprint: `D0:E9:F5:40:9B:A3:96:C2:64:9A:41:05:59:56:E4:91:57:E5:E9:EE:A5:E5:26:20:43:BF:DC:2E:DD:15:2A:09`.
+  - Noted that Google Play App Signing may require adding another SHA-256 fingerprint later.
+  - Website version increased to `1.0.0+13`.
