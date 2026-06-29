@@ -31,6 +31,7 @@ class GoRouterLinks {
     "/apps/EzInvoice/privacy",
     "/apps/ShowMyName/privacy",
     "/apps/AlphaDiscovery/privacy",
+    "/apps/WakeNow/privacy",
   ];
 
   static const List termsPages = [
@@ -40,6 +41,7 @@ class GoRouterLinks {
     "/apps/EzInvoice/terms",
     "/apps/ShowMyName/terms",
     "/apps/AlphaDiscovery/terms",
+    "/apps/WakeNow/terms",
   ];
 
   static const List appPages = [
@@ -49,6 +51,7 @@ class GoRouterLinks {
     "/apps/EzInvoice",
     "/apps/ShowMyName",
     "/apps/AlphaDiscovery",
+    "/apps/WakeNow",
   ];
 }
 
@@ -419,5 +422,82 @@ class ParameterClass {
     AssetsLinks.alphaDiscoveryAppleAppStore,
     "/apps/AlphaDiscovery",
     5,
+  ];
+
+  static List wakeNowInformationApp(bool isEs) => [
+    AssetsRes.imagesList[6],
+    "WakeNow",
+    _t(
+      isEs,
+      es:
+          "WakeNow es una app de alarmas diseñada para ayudarte a despertar con más intención. Puedes crear múltiples alarmas, elegir sonidos, personalizar tarjetas visuales y usar opciones de misión para apagar la alarma de forma más consciente.\n\n"
+          "La app incluye funciones como snooze, apagado de emergencia, Wake Coins, fondos para alarmas, resumen del clima y enlaces compartidos para abrir alarmas directamente en WakeNow cuando el app está instalado.\n\n"
+          "WakeNow está pensada para rutinas diarias, recordatorios importantes y mañanas más organizadas, con una experiencia simple y clara en teléfono.",
+      en:
+          "WakeNow is an alarm app built to help you wake up with more intention. You can create multiple alarms, choose sounds, customize visual alarm cards, and use mission-based dismiss options for a more mindful wake-up.\n\n"
+          "The app includes snooze, emergency dismiss, Wake Coins, alarm card wallpapers, weather briefs, and shared alarm links that open directly in WakeNow when the app is installed.\n\n"
+          "WakeNow is made for daily routines, important reminders, and more organized mornings, with a simple and clear mobile experience.",
+    ),
+    AssetsLinks.wakeNowGooglePlayLink,
+    AssetsLinks.wakeNowAppleAppStore,
+    "/",
+    6,
+    6,
+  ];
+
+  static List wakeNowInformationPrivacy(bool isEs) => [
+    AssetsRes.imagesList[6],
+    "WakeNow",
+    _t(isEs, es: "Política de privacidad", en: "Privacy Policy"),
+    _t(
+      isEs,
+      es:
+          "WakeNow es operada por Liisgo LLC y está diseñada para administrar alarmas y rutinas de despertar de forma práctica. No vendemos tu información personal.\n\n"
+          "La información que configuras en la app, como alarmas, horarios, sonidos, preferencias, misiones y estilos visuales, se usa para proporcionar la funcionalidad principal de WakeNow. Parte de esta información puede guardarse localmente en tu dispositivo para que tus alarmas funcionen correctamente.\n\n"
+          "La app puede solicitar permisos del dispositivo, como notificaciones, alarmas exactas o ejecución en segundo plano, para activar alarmas de forma confiable. Si usas funciones como clima, la app puede usar datos necesarios para mostrar un resumen útil.\n\n"
+          "Podemos recopilar información limitada y anónima de rendimiento, fallos o uso general para mejorar estabilidad y experiencia. Si la app incluye anuncios o compras, esos servicios pueden ser administrados por Google Play, Apple App Store u otros proveedores de acuerdo con sus propias políticas.\n\n"
+          "Para preguntas de privacidad o soporte, contáctanos en sales@liisgo.com.",
+      en:
+          "WakeNow is operated by Liisgo LLC and is designed to manage alarms and wake-up routines in a practical way. We do not sell your personal information.\n\n"
+          "Information you configure in the app, such as alarms, schedules, sounds, preferences, missions, and visual styles, is used to provide WakeNow's core functionality. Some of this information may be stored locally on your device so alarms can work correctly.\n\n"
+          "The app may request device permissions, such as notifications, exact alarms, or background execution, to trigger alarms reliably. If you use features such as weather, the app may use the data needed to show a useful brief.\n\n"
+          "We may collect limited and anonymous performance, crash, or general usage information to improve stability and experience. If the app includes ads or purchases, those services may be handled by Google Play, Apple App Store, or other providers according to their own policies.\n\n"
+          "For privacy questions or support, contact us at sales@liisgo.com.",
+    ),
+    AssetsLinks.wakeNowGooglePlayLink,
+    AssetsLinks.wakeNowAppleAppStore,
+    "/apps/WakeNow",
+    6,
+  ];
+
+  static List wakeNowInformationTerms(bool isEs) => [
+    AssetsRes.imagesList[6],
+    "WakeNow",
+    _t(isEs, es: "Términos y condiciones", en: "Terms and Conditions"),
+    _t(
+      isEs,
+      es:
+          "Al usar WakeNow, aceptas usar la app de forma responsable para crear, administrar y recibir alarmas, recordatorios y rutinas de despertar.\n\n"
+          "El usuario es responsable de configurar correctamente sus alarmas, permisos del dispositivo, volumen, batería, modo no molestar y cualquier ajuste del sistema que pueda afectar el funcionamiento de las alarmas.\n\n"
+          "WakeNow se ofrece como una herramienta de apoyo para alarmas y rutinas. Aunque trabajamos para que la app sea confiable, no podemos garantizar que una alarma suene en todas las circunstancias, especialmente si el dispositivo está apagado, sin batería, con permisos bloqueados o limitado por el sistema operativo.\n\n"
+          "Las funciones de misión, snooze, apagado de emergencia, clima, Wake Coins, tarjetas visuales o enlaces compartidos pueden cambiar o requerir conexión, permisos o disponibilidad de servicios externos.\n\n"
+          "No debes modificar, copiar, revender, descompilar o interferir con la seguridad, disponibilidad o funcionamiento de la app.\n\n"
+          "WakeNow se proporciona tal como está. Liisgo LLC no será responsable por pérdidas, retrasos, eventos perdidos o daños derivados del uso o imposibilidad de uso de la app.\n\n"
+          "Podemos actualizar estos términos ocasionalmente. El uso continuo de WakeNow después de un cambio significa que aceptas los términos actualizados.\n\n"
+          "Para preguntas o soporte, contáctanos en sales@liisgo.com.",
+      en:
+          "By using WakeNow, you agree to use the app responsibly to create, manage, and receive alarms, reminders, and wake-up routines.\n\n"
+          "You are responsible for correctly configuring your alarms, device permissions, volume, battery, Do Not Disturb mode, and any system settings that may affect alarm behavior.\n\n"
+          "WakeNow is provided as a support tool for alarms and routines. Although we work to make the app reliable, we cannot guarantee that an alarm will ring in every circumstance, especially if the device is powered off, out of battery, blocked by permissions, or limited by the operating system.\n\n"
+          "Mission dismiss, snooze, emergency dismiss, weather, Wake Coins, visual alarm cards, or shared links may change or may require connectivity, permissions, or third-party service availability.\n\n"
+          "You may not modify, copy, resell, decompile, or interfere with the security, availability, or operation of the app.\n\n"
+          "WakeNow is provided as is. Liisgo LLC is not responsible for losses, delays, missed events, or damages resulting from use of the app or inability to use it.\n\n"
+          "We may update these terms from time to time. Continued use of WakeNow after a change means you accept the updated terms.\n\n"
+          "For questions or support, contact us at sales@liisgo.com.",
+    ),
+    AssetsLinks.wakeNowGooglePlayLink,
+    AssetsLinks.wakeNowAppleAppStore,
+    "/apps/WakeNow",
+    6,
   ];
 }

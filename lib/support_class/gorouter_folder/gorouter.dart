@@ -157,6 +157,36 @@ final GoRouter router = GoRouter(
       },
     ),
 
+    // WakeNow Routes
+    GoRoute(
+      path: "/apps/WakeNow",
+      builder: (BuildContext context, GoRouterState state) {
+        final isEs = AppText.of(context).isEs;
+        return AppPage(
+          appTitle: 'WakeNow',
+          appInformationApp: ParameterClass.wakeNowInformationApp(isEs),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/apps/WakeNow/privacy',
+      builder: (BuildContext context, GoRouterState state) {
+        final isEs = AppText.of(context).isEs;
+        return KapiNotePrivacy(
+          appInformationPrivacy: ParameterClass.wakeNowInformationPrivacy(isEs),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/apps/WakeNow/terms',
+      builder: (BuildContext context, GoRouterState state) {
+        final isEs = AppText.of(context).isEs;
+        return KapiNotePrivacy(
+          appInformationPrivacy: ParameterClass.wakeNowInformationTerms(isEs),
+        );
+      },
+    ),
+
     GoRoute(
       path: '/settings',
       builder: (BuildContext context, GoRouterState state) {

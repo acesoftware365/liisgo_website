@@ -114,6 +114,12 @@ class HomePage extends StatelessWidget {
                                   route: "/apps/AlphaDiscovery",
                                 ),
                                 _AppCard(
+                                  title: "WakeNow",
+                                  subtitle: text.smartAlarms,
+                                  imagePath: AssetsRes.imagesList[6],
+                                  route: "/apps/WakeNow",
+                                ),
+                                _AppCard(
                                   title: text.comingSoon,
                                   subtitle: text.newTools,
                                   imagePath: AssetsRes.imagesList[2],

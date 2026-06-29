@@ -128,3 +128,43 @@ Date: 2026-06-16
   - Updated `web/.well-known/assetlinks.json` with the testing APK SHA-256 fingerprint: `D0:E9:F5:40:9B:A3:96:C2:64:9A:41:05:59:56:E4:91:57:E5:E9:EE:A5:E5:26:20:43:BF:DC:2E:DD:15:2A:09`.
   - Noted that Google Play App Signing may require adding another SHA-256 fingerprint later.
   - Website version increased to `1.0.0+13`.
+- 2026-06-28 WakeNow app page preview update:
+  - Added WakeNow as a new app on the Liisgo website home app grid.
+  - Added WakeNow app, privacy, and terms routes:
+    - `/apps/WakeNow`
+    - `/apps/WakeNow/privacy`
+    - `/apps/WakeNow/terms`
+  - Copied the real WakeNow app icon from `/Users/juanpolanco/StudioProjects/wakenow/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png` into `assets/miscellaneous/wakenow_app_logo.png`.
+  - Created WakeNow promotional and screenshot-style website assets using real WakeNow project alarm-card backgrounds and the real app icon:
+    - `assets/app_pages/wakenow_promo.png`
+    - `assets/app_pages/wakenow_screen_1.png`
+    - `assets/app_pages/wakenow_screen_2.png`
+    - `assets/app_pages/wakenow_screen_3.png`
+  - Left WakeNow store links empty until Google Play or App Store links are available; badges display disabled instead of opening bad links.
+  - Website version increased to `1.0.0+14`.
+  - This change is for local preview first; do not upload/deploy until Juan approves the browser preview.
+- 2026-06-28 WakeNow real assets replacement:
+  - Juan generated real WakeNow website assets in `/Users/juanpolanco/StudioProjects/wakenow/website_assets/wakenow`.
+  - Replaced the temporary WakeNow visuals with the real exported app assets:
+    - `wakenow_icon.png`
+    - `wakenow_promo.png`
+    - `wakenow_screen_1.png`
+    - `wakenow_screen_2.png`
+    - `wakenow_screen_3.png`
+    - `wakenow_share_alarm.png`
+  - Updated the WakeNow page accent color to the app's main blue `#2447D8`.
+  - Added the real share alarm screenshot to the WakeNow page visual gallery.
+  - Added cache-busting website asset copies named `wakenow_real_*` because Chrome kept showing the earlier temporary promo from cache during local preview.
+  - WakeNow recommended palette from the app project:
+    - `#07111F`, `#17355B`, `#2447D8`, `#9FC2FF`, `#FFC83D`, `#FF8A2A`, `#13D3D3`, `#F8FAFC`.
+- 2026-06-29 WakeNow new web photos update:
+  - Juan provided updated WakeNow web images:
+    - `/Users/juanpolanco/StudioProjects/wakenow/website_assets/wakenow/wakenow_promo.png`
+    - `/Users/juanpolanco/StudioProjects/wakenow/website_assets/wakenow/wakenow_store.png`
+  - Copied them into the Liisgo website as cache-busting final assets:
+    - `assets/app_pages/wakenow_final_promo.png`
+    - `assets/app_pages/wakenow_final_store.png`
+  - Updated the WakeNow app page to use the new final promo image.
+  - Added the WakeNow Store screenshot to the WakeNow screenshot gallery.
+  - Removed the duplicate WakeNow home/share screenshot from the gallery after Juan noticed the repeated image; final gallery is Home, Store, Edit Alarm, and Wake Note.
+  - Website version increased to `1.0.0+15`.

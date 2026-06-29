@@ -20,4 +20,8 @@ class AssetsLinks {
       "https://play.google.com/store/apps/details?id=com.liisgo.alphadiscovery";
   static const String alphaDiscoveryAppleAppStore =
       "https://apps.apple.com/us/app/alpha-discovery/id6777330910";
+
+  // WakeNow
+  static const String wakeNowGooglePlayLink = "";
+  static const String wakeNowAppleAppStore = "";
 }

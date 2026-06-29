@@ -51,6 +51,8 @@ class AppText {
       chooseText(es: 'Letrero digital', en: 'Digital sign');
   String get kidsLearning =>
       chooseText(es: 'App educativa para niños', en: 'Kids Learning App');
+  String get smartAlarms =>
+      chooseText(es: 'Alarmas inteligentes', en: 'Smart alarms');
   String get comingSoon => chooseText(es: 'Próximamente', en: 'Coming Soon');
   String get newTools => chooseText(es: 'Nuevas herramientas', en: 'New tools');
   String get open => chooseText(es: 'Abrir', en: 'Open');

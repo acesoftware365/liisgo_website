@@ -7,10 +7,15 @@ class AssetsRes {
   static const String downloadLogo = 'assets/home_page/download_logo.png';
 
   // ShowMyName
-  static const String showMyNameLogo = 'assets/miscellaneous/showmyname_app_logo.png';
+  static const String showMyNameLogo =
+      'assets/miscellaneous/showmyname_app_logo.png';
 
   // Alpha Discovery
-  static const String alphaDiscoveryLogo = 'assets/miscellaneous/alpha_Discovery.png';
+  static const String alphaDiscoveryLogo =
+      'assets/miscellaneous/alpha_Discovery.png';
+
+  // WakeNow
+  static const String wakeNowLogo = 'assets/miscellaneous/wakenow_app_logo.png';
 
   /// Índices:
   /// 0 = Liisgo
@@ -19,6 +24,7 @@ class AssetsRes {
   /// 3 = EzInvoice
   /// 4 = ShowMyName
   /// 5 = Alpha Discovery
+  /// 6 = WakeNow
   static const List imagesList = [
     'assets/miscellaneous/logo.png',
     'assets/miscellaneous/kapi_note_app_logo.png',
@@ -26,5 +32,6 @@ class AssetsRes {
     'assets/miscellaneous/EzInvoice_Icon.png',
     'assets/miscellaneous/showmyname_app_logo.png',
     'assets/miscellaneous/alpha_Discovery.png',
+    'assets/miscellaneous/wakenow_app_logo.png',
   ];
 }

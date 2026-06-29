@@ -382,6 +382,17 @@ class _AppVisualSection extends StatelessWidget {
             "assets/app_pages/alpha_discovery_screen_3.png",
           ],
         );
+      case "WakeNow":
+        return const _VisualSet(
+          promo: "assets/app_pages/wakenow_final_promo.png",
+          accent: Color(0xFF2447D8),
+          screenshots: [
+            "assets/app_pages/wakenow_real_screen_1.png",
+            "assets/app_pages/wakenow_final_store.png",
+            "assets/app_pages/wakenow_real_screen_2.png",
+            "assets/app_pages/wakenow_real_screen_3.png",
+          ],
+        );
       default:
         return const _VisualSet(
           promo: "assets/app_pages/kapi_note_promo.png",

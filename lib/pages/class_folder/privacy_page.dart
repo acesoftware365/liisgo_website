@@ -522,27 +522,40 @@ class _DownloadBadges extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final hasGooglePlay = googlePlayUrl.trim().isNotEmpty;
+    final hasAppStore = appStoreUrl.trim().isNotEmpty;
+
     return Wrap(
       spacing: 12,
       runSpacing: 10,
       children: [
-        InkWell(
-          borderRadius: BorderRadius.circular(14),
-          onTap: () async => launchUrl(Uri.parse(googlePlayUrl)),
-          child: _BlackBadge(
-            child: Image.asset(
-              AssetsRes.googlePlay,
-              height: KapiNotePrivacy._storeBadgeHeight,
+        Opacity(
+          opacity: hasGooglePlay ? 1 : 0.38,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(14),
+            onTap: hasGooglePlay
+                ? () async => launchUrl(Uri.parse(googlePlayUrl))
+                : null,
+            child: _BlackBadge(
+              child: Image.asset(
+                AssetsRes.googlePlay,
+                height: KapiNotePrivacy._storeBadgeHeight,
+              ),
             ),
           ),
         ),
-        InkWell(
-          borderRadius: BorderRadius.circular(14),
-          onTap: () async => launchUrl(Uri.parse(appStoreUrl)),
-          child: _BlackBadge(
-            child: Image.asset(
-              AssetsRes.appStore,
-              height: KapiNotePrivacy._storeBadgeHeight,
+        Opacity(
+          opacity: hasAppStore ? 1 : 0.38,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(14),
+            onTap: hasAppStore
+                ? () async => launchUrl(Uri.parse(appStoreUrl))
+                : null,
+            child: _BlackBadge(
+              child: Image.asset(
+                AssetsRes.appStore,
+                height: KapiNotePrivacy._storeBadgeHeight,
+              ),
             ),
           ),
         ),
